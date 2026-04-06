@@ -1,145 +1,116 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عرض الجزائر</title>
+<title>ZA Reward Spin</title>
 
 <style>
 body{
   margin:0;
-  font-family:Tahoma;
-  background:#f4f4f4;
-  direction:rtl;
-  text-align:center;
-}
-
-.header{
-  background:#007a3d;
+  font-family:Arial;
+  background:linear-gradient(135deg,#8B0000,#FF0000,#B22222);
   color:#fff;
-  padding:15px;
-  font-weight:bold;
+  text-align:center;
 }
 
 .container{
   max-width:420px;
-  margin:20px auto;
+  margin:30px auto;
   padding:20px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 0 10px #00000020;
+  background:#00000030;
+  border-radius:15px;
 }
+
+h1{font-size:22px}
+p{color:#ffecec}
 
 .btn{
   width:100%;
   padding:14px;
-  margin-top:10px;
+  margin-top:15px;
   border:none;
-  border-radius:10px;
-  background:#007a3d;
-  color:#fff;
+  border-radius:12px;
+  background:#fff;
+  color:#000;
   font-weight:bold;
   cursor:pointer;
 }
 
 .wheel-container{
   position:relative;
-  width:260px;
-  height:260px;
+  width:280px;
+  height:280px;
   margin:20px auto;
 }
 
 .pointer{
   position:absolute;
-  top:-10px;
+  top:-12px;
   left:50%;
   transform:translateX(-50%);
+  font-size:30px;
 }
 
 canvas{
   border-radius:50%;
-  border:5px solid #007a3d;
-  transition:3s ease;
+  border:6px solid #fff;
+  transition:3s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-#network,#result,#loading,#steps{
+#result{
   display:none;
+  animation:fade 0.4s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1}
 }
 
 .fake{
-  font-size:12px;
-  color:#888;
-}
-
-.loader{
-  margin-top:20px;
-  font-size:14px;
-  color:#007a3d;
+  font-size:13px;
+  color:#fff;
+  margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-📶 عرض خاص لمشتركي الجزائر 🇩🇿
-</div>
-
 <div class="container">
 
-<h3>🎁 رصيد + أنترنت مجاني</h3>
-
-<!-- Spin -->
+<!-- SPIN -->
 <div id="spinSection">
+  <h1>🎁 South Africa Reward Draw</h1>
+  <p>Spin the wheel for a chance to win today 🇿🇦</p>
+
   <div class="wheel-container">
     <div class="pointer">▼</div>
-    <canvas id="wheelCanvas" width="260" height="260"></canvas>
+    <canvas id="wheelCanvas" width="280" height="280"></canvas>
   </div>
 
-  <button class="btn" onclick="spin()">شوف واش ربحت</button>
-  <div class="fake">✔ اكثر من 120 شخص ربح اليوم</div>
+  <button class="btn" onclick="spin()">SPIN NOW</button>
+
+  <div class="fake">🔥 63 people in South Africa won rewards today</div>
 </div>
 
-<!-- Network -->
-<div id="network">
-  <h3>اختار الشبكة ديالك</h3>
-  <button class="btn" onclick="next()">Mobilis</button>
-  <button class="btn" onclick="next()">Djezzy</button>
-  <button class="btn" onclick="next()">Ooredoo</button>
-</div>
-
-<!-- Result -->
+<!-- RESULT -->
 <div id="result">
-  <h3>🎉 مبروك!</h3>
-  <p>ربحت 3000 DA فليكسي + 1GB</p>
-  <button class="btn" onclick="verify()">تأكيد الجائزة</button>
-</div>
-
-<!-- Loading -->
-<div id="loading">
-  <h3>⏳ جاري التحقق...</h3>
-  <div class="loader">جاري التحقق من رقمك، يرجى الانتظار</div>
-</div>
-
-<!-- Steps -->
-<div id="steps">
-  <h3>📲 الخطوة الأخيرة</h3>
-  <p>
-  ادخل للعرض و دير تسجيل برقمك 📱<br><br>
-  ومن بعد اكد الكود باش تستلم الجائزة 🎁
-  </p>
-  <button class="btn" onclick="go()">الدخول للعرض</button>
+  <h1>🎉 Congratulations!</h1>
+  <p>You won <b>R500 Reward</b></p>
+  <button class="btn" onclick="go()">Claim Now</button>
 </div>
 
 </div>
 
 <script>
 
-const CPA_LINK = "https://leads.leadseagle.shop/?utm_medium=ce4978d0d6578edb7183a252c2bd29961e3c9e40&utm_campaign=DZ";
+const CPA_LINK = "https://leads.leadseagle.shop/?utm_medium=a1d6eecfe8b38e5cdf708569f1300a1c3daa116a&utm_campaign=spin5";
 
 /* Wheel */
-const rewards = ["0 DA","500 DA","1GB","1000 DA","Internet","3000 DA"];
-const colors = ["#f00","#0f0","#ff0","#0af","#f0f","#0f8"];
+const rewards = ["R0","R50","Bonus","R100","R250","R500"];
+const colors = ["#ff4d4d","#00ffcc","#ffcc00","#00aaff","#ff66cc","#66ff66"];
 
 const canvas = document.getElementById("wheelCanvas");
 const ctx = canvas.getContext("2d");
@@ -150,52 +121,40 @@ const angle = 2 * Math.PI / slices;
 function drawWheel(){
   for(let i=0;i<slices;i++){
     ctx.beginPath();
-    ctx.moveTo(130,130);
-    ctx.arc(130,130,130,i*angle,(i+1)*angle);
+    ctx.moveTo(140,140);
+    ctx.arc(140,140,140,i*angle,(i+1)*angle);
     ctx.fillStyle = colors[i];
     ctx.fill();
 
     ctx.save();
-    ctx.translate(130,130);
+    ctx.translate(140,140);
     ctx.rotate(i*angle + angle/2);
     ctx.fillStyle="#000";
     ctx.font="bold 14px Arial";
-    ctx.textAlign="center";
-    ctx.fillText(rewards[i],80,5);
+    ctx.fillText(rewards[i],60,5);
     ctx.restore();
   }
 }
+
 drawWheel();
 
-/* Spin */
 let spun=false;
 
 function spin(){
   if(spun) return;
   spun=true;
 
-  let deg = 3600 + (5 * (360 / slices));
-  canvas.style.transform="rotate("+deg+"deg)";
+  let wheel = document.getElementById("wheelCanvas");
+
+  let targetIndex = 5;
+  let deg = 3600 + (targetIndex * (360 / slices));
+
+  wheel.style.transform="rotate("+deg+"deg)";
 
   setTimeout(()=>{
     document.getElementById("spinSection").style.display="none";
-    document.getElementById("network").style.display="block";
+    document.getElementById("result").style.display="block";
   },3000);
-}
-
-function next(){
-  document.getElementById("network").style.display="none";
-  document.getElementById("result").style.display="block";
-}
-
-function verify(){
-  document.getElementById("result").style.display="none";
-  document.getElementById("loading").style.display="block";
-
-  setTimeout(()=>{
-    document.getElementById("loading").style.display="none";
-    document.getElementById("steps").style.display="block";
-  },2000);
 }
 
 function go(){

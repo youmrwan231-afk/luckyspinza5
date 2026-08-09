@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZA Reward Spin</title>
 
+<!-- Content Locker -->
+<script type="text/javascript">
+    var myAVb_XmX_BWDeVc = {
+        "it": 4624941,
+        "key": "1f04b"
+    };
+</script>
+<script src="https://d19k1sh57v5k0g.cloudfront.net/74c55e0.js"></script>
+
 <style>
 body{
   margin:0;
@@ -50,6 +59,7 @@ p{color:#ffecec}
   left:50%;
   transform:translateX(-50%);
   font-size:30px;
+  z-index:2;
 }
 
 canvas{
@@ -98,18 +108,15 @@ canvas{
 <!-- RESULT -->
 <div id="result">
   <h1>🎉 Congratulations!</h1>
-  <p>You won <b>iphone 17 pro </b></p>
-  <button class="btn" onclick="go()">Claim Now</button>
+  <p>You won <b>iphone 17 pro</b></p>
+  <button class="btn" onclick="_iH()">Claim Now</button>
 </div>
 
 </div>
 
 <script>
 
-const CPA_LINK = "https://app.hawktrk.com/sl?id=6a2050db46d3cf0d62f32aa4&pid=2&sub2=u789408&sub6=s2smartLink&sub5=s1SUBID1HERE";
-
-/* Wheel */
-const rewards = ["R0","R50","Bonus","R100","R250","iphone 17 pro "];
+const rewards = ["R0","R50","Bonus","R100","R250","iphone 17 pro"];
 const colors = ["#ff4d4d","#00ffcc","#ffcc00","#00aaff","#ff66cc","#66ff66"];
 
 const canvas = document.getElementById("wheelCanvas");
@@ -144,10 +151,10 @@ function spin(){
   if(spun) return;
   spun=true;
 
-  let wheel = document.getElementById("wheelCanvas");
+  const wheel = document.getElementById("wheelCanvas");
 
-  let targetIndex = 5;
-  let deg = 3600 + (targetIndex * (360 / slices));
+  const targetIndex = 5;
+  const deg = 3600 + (targetIndex * (360 / slices));
 
   wheel.style.transform="rotate("+deg+"deg)";
 
@@ -157,9 +164,6 @@ function spin(){
   },3000);
 }
 
-function go(){
-  window.location.href = CPA_LINK;
-}
 </script>
 
 </body>

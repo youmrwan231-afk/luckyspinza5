@@ -1,256 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZA Reward Spin</title>
+ودي كمان 
 
-    <!-- Content Locker -->
-    <script type="text/javascript">
-        var rxmoS_vUe_Cfwrhc = {
-            "it": 4624965,
-            "key": "87874"
-        };
-    </script>
 
-    <script src="https://d1g1lhd4vferpn.cloudfront.net/4e43668.js"></script>
+\<!DOCTYPE html>
+\<html lang="en">
+\<head>
+\<meta charset="UTF-8">
+\<meta name="viewport" content="width=device-width, initial-scale=1.0">
+\<title>ZA Reward Spin\</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #8B0000, #FF0000, #B22222);
-            color: #fff;
-            text-align: center;
-        }
+\<style>
+body{
+  margin:0;
+  font-family\:Arial;
+  background\:linear-gradient(135deg,#8B0000,#FF0000,#B22222);
+  color:#fff;
+  text-align\:center;
+}
 
-        .container {
-            max-width: 420px;
-            margin: 30px auto;
-            padding: 20px;
-            background: #00000030;
-            border-radius: 15px;
-        }
+.container{
+  max-width:420px;
+  margin:30px auto;
+  padding:20px;
+  background:#00000030;
+  border-radius:15px;
+}
 
-        h1 {
-            font-size: 22px;
-        }
+h1{font-size:22px}
+p{color:#ffecec}
 
-        p {
-            color: #ffecec;
-        }
+.btn{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  border\:none;
+  border-radius:12px;
+  background:#fff;
+  color:#000;
+  font-weight\:bold;
+  cursor\:pointer;
+}
 
-        .btn {
-            width: 100%;
-            padding: 14px;
-            margin-top: 15px;
-            border: none;
-            border-radius: 12px;
-            background: #fff;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.wheel-container{
+  position\:relative;
+  width:280px;
+  height:280px;
+  margin:20px auto;
+}
 
-        .wheel-container {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            margin: 20px auto;
-        }
+.pointer{
+  position\:absolute;
+  top:-12px;
+  left:50%;
+  transform\:translateX(-50%);
+  font-size:30px;
+}
 
-        .pointer {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 30px;
-            z-index: 2;
-        }
+canvas{
+  border-radius:50%;
+  border:6px solid #fff;
+  transition:3s cubic-bezier(0.33, 1, 0.68, 1);
+}
 
-        canvas {
-            border-radius: 50%;
-            border: 6px solid #fff;
-            transition: 3s cubic-bezier(0.33, 1, 0.68, 1);
-        }
+\#result{
+  display\:none;
+  animation\:fade 0.4s ease;
+}
 
-        #result {
-            display: none;
-            animation: fade 0.4s ease;
-        }
+@keyframes fade{
+  from{opacity:0;transform\:translateY(10px)}
+  to{opacity:1}
+}
 
-        @keyframes fade {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
+.fake{
+  font-size:13px;
+  color:#fff;
+  margin-top:10px;
+}
+\</style>
+\</head>
 
-            to {
-                opacity: 1;
-            }
-        }
+\<body>
 
-        .fake {
-            font-size: 13px;
-            color: #fff;
-            margin-top: 10px;
-        }
-    </style>
-</head>
+\<div class="container">
 
-<body>
+\<!-- SPIN -->
+\<div id="spinSection">
+  \<h1>🎁 South Africa Reward Draw\</h1>
+  \<p>Spin the wheel for a chance to win today 🇿🇦\</p>
 
-    <div class="container">
+  \<div class="wheel-container">
+    \<div class="pointer">▼\</div>
+    \<canvas id="wheelCanvas" width="280" height="280">\</canvas>
+  \</div>
 
-        <!-- SPIN -->
-        <div id="spinSection">
-            <h1>🎁 South Africa Reward Draw</h1>
+  \<button class="btn" onclick="spin()">SPIN NOW\</button>
 
-            <p>
-                Spin the wheel for a chance to win today 🇿🇦
-            </p>
+  \<div class="fake">🔥 63 people in South Africa won rewards today\</div>
+\</div>
 
-            <div class="wheel-container">
-                <div class="pointer">▼</div>
+\<!-- RESULT -->
+\<div id="result">
+  \<h1>🎉 Congratulations!\</h1>
+  \<p>You won \<b>iphone 17 pro \</b>\</p>
+  \<button class="btn" onclick="go()">Claim Now\</button>
+\</div>
 
-                <canvas
-                    id="wheelCanvas"
-                    width="280"
-                    height="280">
-                </canvas>
-            </div>
+\</div>
 
-            <button
-                class="btn"
-                type="button"
-                onclick="spin()">
-                SPIN NOW
-            </button>
+\<script>
 
-            <div class="fake">
-                🔥 63 people in South Africa won rewards today
-            </div>
-        </div>
+const CPA\_LINK = "[https://app.hawktrk.com/sl?id=6a2050db46d3cf0d62f32aa4&pid=2&sub2=u789408&sub6=s2smartLink&sub5=s1SUBID1HERE](https://app.hawktrk.com/sl?id=6a2050db46d3cf0d62f32aa4\&pid=2\&sub2=u789408\&sub6=s2smartLink\&sub5=s1SUBID1HERE)";
 
-        <!-- RESULT -->
-        <div id="result">
-            <h1>🎉 Congratulations!</h1>
+/\* Wheel \*/
+const rewards = ["R0","R50","Bonus","R100","R250","iphone 17 pro "];
+const colors = ["#ff4d4d","#00ffcc","#ffcc00","#00aaff","#ff66cc","#66ff66"];
 
-            <p>
-                You won <b>iphone 17 pro</b>
-            </p>
+const canvas = document.getElementById("wheelCanvas");
+const ctx = canvas.getContext("2d");
 
-            <button
-                class="btn"
-                type="button"
-                onclick="_iD()">
-                Claim Now
-            </button>
-        </div>
+const slices = rewards.length;
+const angle = 2 \* Math.PI / slices;
 
-    </div>
+function drawWheel(){
+  for(let i=0;i\<slices;i++){
+    ctx.beginPath();
+    ctx.moveTo(140,140);
+    ctx.arc(140,140,140,i\*angle,(i+1)\*angle);
+    ctx.fillStyle = colors[i];
+    ctx.fill();
 
-    <script>
-        const rewards = [
-            "R0",
-            "R50",
-            "Bonus",
-            "R100",
-            "R250",
-            "iphone 17 pro"
-        ];
+    ctx.save();
+    ctx.translate(140,140);
+    ctx.rotate(i\*angle + angle/2);
+    ctx.fillStyle="#000";
+    ctx.font="bold 14px Arial";
+    ctx.fillText(rewards[i],60,5);
+    ctx.restore();
+  }
+}
 
-        const colors = [
-            "#ff4d4d",
-            "#00ffcc",
-            "#ffcc00",
-            "#00aaff",
-            "#ff66cc",
-            "#66ff66"
-        ];
+drawWheel();
 
-        const canvas = document.getElementById("wheelCanvas");
-        const ctx = canvas.getContext("2d");
+let spun=false;
 
-        const slices = rewards.length;
-        const angle = 2 * Math.PI / slices;
+function spin(){
+  if(spun) return;
+  spun=true;
 
-        function drawWheel() {
-            for (let i = 0; i < slices; i++) {
+  let wheel = document.getElementById("wheelCanvas");
 
-                ctx.beginPath();
+  let targetIndex = 5;
+  let deg = 3600 + (targetIndex \* (360 / slices));
 
-                ctx.moveTo(140, 140);
+  wheel.style.transform="rotate("+deg+"deg)";
 
-                ctx.arc(
-                    140,
-                    140,
-                    140,
-                    i * angle,
-                    (i + 1) * angle
-                );
+  setTimeout(()=>{
+    document.getElementById("spinSection").style.display="none";
+    document.getElementById("result").style.display="block";
+  },3000);
+}
 
-                ctx.fillStyle = colors[i];
-                ctx.fill();
+function go(){
+  window\.location.href = CPA\_LINK;
+}
+\</script>
 
-                ctx.save();
-
-                ctx.translate(140, 140);
-
-                ctx.rotate(
-                    i * angle + angle / 2
-                );
-
-                ctx.fillStyle = "#000";
-                ctx.font = "bold 14px Arial";
-
-                ctx.fillText(
-                    rewards[i],
-                    60,
-                    5
-                );
-
-                ctx.restore();
-            }
-        }
-
-        drawWheel();
-
-        let spun = false;
-
-        function spin() {
-
-            if (spun) {
-                return;
-            }
-
-            spun = true;
-
-            const wheel =
-                document.getElementById("wheelCanvas");
-
-            const targetIndex = 5;
-
-            const deg =
-                3600 +
-                (targetIndex * (360 / slices));
-
-            wheel.style.transform =
-                "rotate(" + deg + "deg)";
-
-            setTimeout(function () {
-
-                document.getElementById(
-                    "spinSection"
-                ).style.display = "none";
-
-                document.getElementById(
-                    "result"
-                ).style.display = "block";
-
-            }, 3000);
-        }
-    </script>
-
-</body>
-</html>
+\</body>
+\</html>
